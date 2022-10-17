@@ -60,7 +60,6 @@ public class Playermovement : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         var vec = context.ReadValue<Vector2>();
-        Debug.Log("aaaa");
         if (vec.x > 0 ) // if right 
         {
             this.right = context.performed;
