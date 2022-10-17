@@ -1,40 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MapPiece : MonoBehaviour
 {
     [SerializeField]
-    private Transform _spawnPoint;
+    private Transform _nextSpawnPoint;
 
-    [SerializeField]
-    private MapPieceType _type;
-
-    public Vector3 spawnPoint 
+    public Vector3 NextSpawnPoint
     {
-        get { return this._spawnPoint.position; }
+        get { return _nextSpawnPoint.position; }
     }
 
-    public MapPieceType type
+    public Vector3 Forward
     {
-        get { return this._type; }
+        get { return _nextSpawnPoint.forward; }
     }
-
-    public Vector3 forward
-    {
-        get { return this._spawnPoint.forward; }
-    }
-
-
-    void Start() // For obstacle generation?
-    {
-
-    }
-}
-
-public enum MapPieceType
-{
-    Right,
-    Left,
-    Straight,
 }
