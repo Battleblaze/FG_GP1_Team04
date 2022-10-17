@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using FG.Managers;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Playermovement : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class Playermovement : MonoBehaviour
     [SerializeField]private float horizontalspeed;
 
     private GameManager _gameManager;
+    private bool left = false;
+    private bool right = false;
 
     private void Awake()
     {
@@ -32,12 +35,10 @@ public class Playermovement : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKey(KeyCode.LeftArrow) && _gameManager.pasuedgame == false && gameObject.transform.position.z > -3)
+        if (this.left)
         {
             transform.Translate( horizontalspeed * Time.deltaTime * -gameObject.transform.right);
-        }
-
-        if (Input.GetKey(KeyCode.RightArrow)&& _gameManager.pasuedgame == false && gameObject.transform.position.z < 3)
+        } else if (this.right)
         {
             transform.Translate( horizontalspeed * Time.deltaTime * gameObject.transform.right);
         }
@@ -54,6 +55,23 @@ public class Playermovement : MonoBehaviour
             }
         }
 
+    }
+
+    public void Move(InputAction.CallbackContext context)
+    {
+        var vec = context.ReadValue<Vector2>();
+
+        if (vec.x > 0 ) // if right 
+        {
+            this.right = context.performed;
+        } else if (vec.x == 0)
+        {
+            this.right = false;
+            this.left = false;
+        } else // else its left
+        {
+            this.left = context.performed;
+        } 
     }
 
     public void putPlayerInLane0()

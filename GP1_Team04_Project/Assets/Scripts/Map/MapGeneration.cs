@@ -7,14 +7,22 @@ public class MapGeneration : MonoBehaviour
     private GameObject[] _mapPiecePrefabs;
 
     [SerializeField]
-    private List<MapPiece> _placedPieces = new();
+    private List<MapPiece> _placedPieces;
 
     [SerializeField]
-    private float _xCutOffPoint = 20f;
+    private float _xCutOffPoint = 50f;
 
     [SerializeField]
     private float _piecesToPlace = 5f;
 
+    private void Awake()
+    {
+        if (_mapPiecePrefabs == null || _placedPieces == null)
+        {
+            Debug.LogError("You need to assign prefabs in MapGeneration.");
+            Destroy(this);
+        }
+    }
 
     void FixedUpdate()
     {
