@@ -23,16 +23,16 @@ public class Rotate : MonoBehaviour
     
     void Update()
     {
-        //Debug.Log(_playermovement.lanePosition);
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            rotateLeft();
-        }
+        //Debug.Log(_playermovement.lanePosition); // !Do not use until changed to new input system
+        // if (Input.GetKeyDown(KeyCode.LeftArrow))
+        // {
+        //     rotateLeft();
+        // }
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            rotateRight();
-        }
+        // if (Input.GetKeyDown(KeyCode.RightArrow))
+        // {
+        //     rotateRight();
+        // }
 
         if (_playermovement.lanePosition == 0)
         {
