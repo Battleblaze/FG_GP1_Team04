@@ -246,7 +246,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 384214576873345360, guid: fe3cc446840bcc749bdf2d6156f0368e, type: 3}
   m_PrefabInstance: {fileID: 555640726}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 255790354}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca7a7c0c95610bf4291e23f555d7e0b6, type: 3}
@@ -396,11 +396,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &255790354 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8799645419579448423, guid: fe3cc446840bcc749bdf2d6156f0368e, type: 3}
-  m_PrefabInstance: {fileID: 555640726}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &311551771
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,11 +862,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mapPiecePrefabs:
-  - {fileID: 255790354}
+  - {fileID: 8799645419579448423, guid: 6192d15edd32a034fb3bae2a60568fb5, type: 3}
+  - {fileID: 8799645419579448423, guid: fe3cc446840bcc749bdf2d6156f0368e, type: 3}
   _placedPieces:
   - {fileID: 123154926}
   _xCutOffPoint: 50
-  _piecesToPlace: 5
+  _piecesToPlace: 10
 --- !u!1 &1262115921
 GameObject:
   m_ObjectHideFlags: 0
