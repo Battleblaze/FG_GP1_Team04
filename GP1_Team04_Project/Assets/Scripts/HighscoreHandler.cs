@@ -36,14 +36,14 @@ public class HighscoreHandler : MonoBehaviour
 
 	void NewScores(Highscore[] highscores)
 	{
-		foreach (var highscore in highscores)
+		for (int i = highscores.Length - 1; i >= 0; i--)
 		{
 			GameObject score = Instantiate(this.textPrefab, this.parent, false);
 
 			var handler = score.GetComponent<HighscoreText>();
 
-			handler.userName = highscore.name;
-			handler.score = highscore.score;
+			handler.userName = highscores[i].name;
+			handler.score = highscores[i].score;
 		}
 	}
 
