@@ -13,7 +13,7 @@ public class MapGeneration : MonoBehaviour
     private float _xCutOffPoint = 50f;
 
     [SerializeField]
-    private float _piecesToPlace = 5f;
+    private int _piecesToPlace = 10;
 
     private void Awake()
     {
@@ -44,7 +44,7 @@ public class MapGeneration : MonoBehaviour
     private void Spawn()
     {
         MapPiece lastPlacedPieces = _placedPieces[^1];
-        var randomPrefabIndex = Random.Range(0, _mapPiecePrefabs.Length - 1);
+        var randomPrefabIndex = Random.Range(0, _mapPiecePrefabs.Length);
 
         GameObject newPiece = Instantiate(_mapPiecePrefabs[randomPrefabIndex], lastPlacedPieces.NextSpawnPoint, Quaternion.LookRotation(lastPlacedPieces.Forward, Vector3.up));
         _placedPieces.Add(newPiece.GetComponent<MapPiece>());
