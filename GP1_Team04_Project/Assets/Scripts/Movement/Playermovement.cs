@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Playermovement : MonoBehaviour
@@ -9,6 +10,7 @@ public class Playermovement : MonoBehaviour
     [SerializeField] private GameObject hallway;
 
     private Rotate _rotate;
+    [SerializeField]private float horizontalspeed;
 
     private void Awake()
     {
@@ -19,28 +21,21 @@ public class Playermovement : MonoBehaviour
     void Start()
     {
         lanePosition = 1;
+        horizontalspeed = 10f;
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
-            if (lanePosition != 0)
-            {
-                gameObject.transform.position += new Vector3(0, 0, -3);
-                    lanePosition--;
-            }
+            transform.Translate( horizontalspeed * Time.deltaTime * -gameObject.transform.right);
         }
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
-            if (lanePosition != 2)
-            {
-                gameObject.transform.position += new Vector3(0, 0, +3);
-                lanePosition++;
-            }
+            transform.Translate( horizontalspeed * Time.deltaTime * gameObject.transform.right);
         }
 
     }
