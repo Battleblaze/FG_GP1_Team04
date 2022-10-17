@@ -32,12 +32,12 @@ public class Playermovement : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKey(KeyCode.LeftArrow) && _gameManager.pasuedgame == false)
+        if (Input.GetKey(KeyCode.LeftArrow) && _gameManager.pasuedgame == false && gameObject.transform.position.z > -3)
         {
             transform.Translate( horizontalspeed * Time.deltaTime * -gameObject.transform.right);
         }
 
-        if (Input.GetKey(KeyCode.RightArrow)&& _gameManager.pasuedgame == false)
+        if (Input.GetKey(KeyCode.RightArrow)&& _gameManager.pasuedgame == false && gameObject.transform.position.z < 3)
         {
             transform.Translate( horizontalspeed * Time.deltaTime * gameObject.transform.right);
         }
