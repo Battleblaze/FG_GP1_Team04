@@ -246,7 +246,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 384214576873345360, guid: fe3cc446840bcc749bdf2d6156f0368e, type: 3}
   m_PrefabInstance: {fileID: 555640726}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 255790354}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca7a7c0c95610bf4291e23f555d7e0b6, type: 3}
@@ -349,7 +349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 2
   m_MaxPlayerCount: -1
   m_AllowJoining: 1
   m_JoinBehavior: 2
@@ -396,6 +396,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &255790354 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8799645419579448423, guid: fe3cc446840bcc749bdf2d6156f0368e, type: 3}
+  m_PrefabInstance: {fileID: 555640726}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &311551771
 GameObject:
   m_ObjectHideFlags: 0
@@ -858,36 +863,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 743348547}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cd15ab2236ac274799dd4a9f380009c, type: 3}
+  m_Script: {fileID: 11500000, guid: f361eb8631803624d802bfdcfddf0fcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  straightPieces:
-  - {fileID: 384214576873345360, guid: fe3cc446840bcc749bdf2d6156f0368e, type: 3}
-  straightWeight: 60
-  rightPieces: []
-  rightWeight: 0
-  leftPieces: []
-  leftWeight: 0
-  spawnPoint: {x: 0, y: 0, z: 0}
-  placedPieces:
+  _mapPiecePrefabs:
+  - {fileID: 255790354}
+  _placedPieces:
   - {fileID: 123154926}
-  zCutOffPoint: 20
-  obstacleWeight: 45
-  coinWeight: 45
-  healthWeight: 10
-  placedPickups: []
-  obstacle: {fileID: 2536240290741218401, guid: 4ae57de755124724f95b00fbc8831e6b, type: 3}
-  healthPickup: {fileID: 3520631002224939190, guid: 9cd3fbf8554645542a04a041726b9519, type: 3}
-  coinPickup: {fileID: 3520631002224939190, guid: 61ba27330bfe7ce4e850ed223862dde9, type: 3}
-  spawnObstacle0: {x: -30, y: -2.5, z: -3}
-  spawnObstacle1: {x: -30, y: -2.5, z: 0}
-  spawnObstacle2: {x: -30, y: -2.5, z: 3}
-  spawnHealth0: {x: -35, y: -2.5, z: -3}
-  spawnHealth1: {x: -35, y: -2.5, z: 0}
-  spawnHealth2: {x: -35, y: -2.5, z: 3}
-  spawnCoin0: {x: -40, y: -2.5, z: -3}
-  spawnCoin1: {x: -40, y: -2.5, z: 0}
-  spawnCoin2: {x: -40, y: -2.5, z: 3}
+  _xCutOffPoint: 50
+  _piecesToPlace: 5
 --- !u!1 &1262115921
 GameObject:
   m_ObjectHideFlags: 0
@@ -1054,7 +1038,7 @@ Transform:
   - {fileID: 311551772}
   - {fileID: 178646895}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1933894656
 GameObject:
@@ -1102,7 +1086,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1933894659
 MonoBehaviour:
