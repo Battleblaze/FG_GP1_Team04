@@ -162,6 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scoreAmount: 100
   GameManager: {fileID: 3520631002224939190}
+  _coinSound: {fileID: 8300000, guid: d6a55da103242a44e9f57f7c762179c4, type: 3}
 --- !u!114 &3520631002224939191
 MonoBehaviour:
   m_ObjectHideFlags: 0

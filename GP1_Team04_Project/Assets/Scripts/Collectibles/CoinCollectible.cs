@@ -27,8 +27,8 @@ namespace FG.Collectibles
 
                 print("Coin collected! New score: " + GameVariables.Score);*/
                 _score.score += 100;
-
                 Destroy(gameObject);
+                AudioManager.instance.CoinCollectSFX();
             }
         }
     }

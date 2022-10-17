@@ -228,6 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 1
+  _HPCollect: {fileID: 8300000, guid: e62568dc348a4844fa32021f5e339707, type: 3}
 --- !u!114 &3520631002224939191
 MonoBehaviour:
   m_ObjectHideFlags: 0

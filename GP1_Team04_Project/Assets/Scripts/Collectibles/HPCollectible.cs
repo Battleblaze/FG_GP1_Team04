@@ -15,6 +15,7 @@ namespace FG.Collectibles
                 if (health.CurrentHealth >= health.MaxHealth) return;
                 else
                 {
+                    AudioManager.instance.HPCollectSFX();
                     health.Heal(_health);
                     Destroy(gameObject);
                 }

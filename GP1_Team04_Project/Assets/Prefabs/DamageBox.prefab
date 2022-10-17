@@ -111,3 +111,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
+  _hurtSound: {fileID: 8300000, guid: 8d10fde6f3065e3439dab6b2d499e422, type: 3}

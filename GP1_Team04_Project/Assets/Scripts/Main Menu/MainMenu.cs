@@ -10,6 +10,9 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject firstSelected;
     private EventSystem eventSystem;
 
+    public AudioClip _buttonPress;
+    public AudioSource _source;
+
     void OnEnable()
     {
         this.eventSystem = EventSystem.current;
@@ -26,5 +29,10 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
         Debug.Log("Quitting");
+    }
+
+    public void PlaySound()
+    {
+        _source.PlayOneShot(_buttonPress);
     }
 }
