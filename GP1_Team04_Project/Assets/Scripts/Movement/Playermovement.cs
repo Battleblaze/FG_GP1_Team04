@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using FG.Managers;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -12,9 +13,12 @@ public class Playermovement : MonoBehaviour
     private Rotate _rotate;
     [SerializeField]private float horizontalspeed;
 
+    private GameManager _gameManager;
+
     private void Awake()
     {
         _rotate = hallway.GetComponent<Rotate>();
+        _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Start is called before the first frame update
@@ -28,14 +32,26 @@ public class Playermovement : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) && _gameManager.pasuedgame == false)
         {
             transform.Translate( horizontalspeed * Time.deltaTime * -gameObject.transform.right);
         }
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow)&& _gameManager.pasuedgame == false)
         {
             transform.Translate( horizontalspeed * Time.deltaTime * gameObject.transform.right);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (_gameManager.pasuedgame == true)
+            {
+                _gameManager.pasuedgame = false;
+            }
+            else
+            {
+                _gameManager.pasuedgame = true;
+            }
         }
 
     }

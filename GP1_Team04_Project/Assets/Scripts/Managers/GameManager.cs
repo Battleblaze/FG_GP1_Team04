@@ -5,6 +5,9 @@ namespace FG.Managers
 {
     public class GameManager : MonoBehaviour
     {
+        
+        public bool pasuedgame = false;
+        
         public enum GameState
         {
             Setup,
