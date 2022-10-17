@@ -45,13 +45,13 @@ public class Playermovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (_gameManager.pasuedgame == true)
+            if (_gameManager.pausedgame == true)
             {
-                _gameManager.pasuedgame = false;
+                _gameManager.pausedgame = false;
             }
             else
             {
-                _gameManager.pasuedgame = true;
+                _gameManager.pausedgame = true;
             }
         }
 

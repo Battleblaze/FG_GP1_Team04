@@ -6,7 +6,7 @@ namespace FG.Managers
     public class GameManager : MonoBehaviour
     {
         
-        public bool pasuedgame = false;
+        public bool pausedgame = false;
         
         public enum GameState
         {
@@ -60,7 +60,7 @@ namespace FG.Managers
 
             // Setup game
             print("Setup");
-            GameVariables.Score = 0f;
+            GameVariables.Score = 0;
 
             UpdateGameState(GameState.Game);
         }
@@ -76,6 +76,8 @@ namespace FG.Managers
         private void GameOver()
         {
             _onGameOver.Invoke();
+
+            this.pausedgame = true;
 
             // Show or load GameOver screen
             print("GameOver Score: " + GameVariables.Score);

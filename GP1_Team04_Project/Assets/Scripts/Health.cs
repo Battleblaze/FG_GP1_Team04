@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using FG.Managers;
 
 namespace FG
 {
@@ -54,7 +55,6 @@ namespace FG
             {
                 _onDeathEvent.Invoke();
                 Dead = true;
-                SceneManager.LoadScene(0);
 
                 switch (_onDeath)
                 {
@@ -68,6 +68,8 @@ namespace FG
                         break;
                     
                 }
+                Debug.Log("dead");
+                GameObject.Find("GameManager").GetComponent<GameManager>().UpdateGameState(GameManager.GameState.GameOver);
             }
 
             if (_text) _text.text = CurrentHealth.ToString();

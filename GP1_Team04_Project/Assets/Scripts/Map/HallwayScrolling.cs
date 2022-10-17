@@ -20,7 +20,7 @@ public class HallwayScrolling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ( _gameManager.pasuedgame == false)
+        if ( _gameManager.pausedgame == false)
         {
             gameObject.transform.Translate( _speedmanager.speed * Time.deltaTime * Vector3.right);
         }

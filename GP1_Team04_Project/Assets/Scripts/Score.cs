@@ -4,7 +4,18 @@ using UnityEngine;
 using TMPro;
 public class Score : MonoBehaviour
 {
-    public int score;
+    private int _score;
+
+    public int score {
+        get { return _score; }
+        set 
+        {
+            this._score = value;
+
+            FG.GameVariables.Score = value;
+        }
+    }
+
     [SerializeField]
     private float _scoreAmount = 100f;
     
@@ -15,12 +26,12 @@ public class Score : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        score = 0;
+        this.score = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        _text.text = "Score: " + score;
+        this._text.text = "Score: " + this.score;
     }
 }
