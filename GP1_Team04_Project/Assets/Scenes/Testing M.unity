@@ -255,6 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 2428290076617756928}
+  division: 4
 --- !u!1 &112077248 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4037989788619552872, guid: e360e3addd9572e428bc652d0b1a87b5, type: 3}

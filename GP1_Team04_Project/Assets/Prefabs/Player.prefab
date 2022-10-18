@@ -103,6 +103,8 @@ MonoBehaviour:
   lanePosition: 0
   hallway: {fileID: 8799645419579448423, guid: fe3cc446840bcc749bdf2d6156f0368e, type: 3}
   horizontalspeed: 0
+  acceleration: 0
+  maxWidth: 4
 --- !u!114 &1851752041243943301
 MonoBehaviour:
   m_ObjectHideFlags: 0

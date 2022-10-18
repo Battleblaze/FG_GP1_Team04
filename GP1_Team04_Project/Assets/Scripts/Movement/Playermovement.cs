@@ -14,11 +14,15 @@ public class Playermovement : MonoBehaviour
 	private Rotate _rotate;
 	[SerializeField] private float horizontalspeed;
 
+	[SerializeField] private float acceleration;
+	[SerializeField] private float maxWidth;
+
 	private GameManager _gameManager;
 	private bool left = false;
 	private bool right = false;
 
 	private float velocity = 0.0f;
+
 
 	private void Awake()
 	{
@@ -46,7 +50,7 @@ public class Playermovement : MonoBehaviour
 			transform.Translate(horizontalspeed * Time.deltaTime * gameObject.transform.forward); // is forward because the map uses +x as forward while unity uses +z
 		}
 
-        
+		this.CheckWall();
 	}
 
 	public void Move(InputAction.CallbackContext context)
@@ -65,6 +69,22 @@ public class Playermovement : MonoBehaviour
 		else // else its left
 		{
 			this.left = context.performed;
+		}
+	}
+
+	void CheckWall()
+	{
+		if (transform.position.z > this.maxWidth)
+		{
+			var old = transform.position;
+			old.z = this.maxWidth;
+			transform.position = old;
+		}
+		else if (transform.position.z < -this.maxWidth)
+		{
+			var old = transform.position;
+			old.z = -this.maxWidth;
+			transform.position = old;
 		}
 	}
 
