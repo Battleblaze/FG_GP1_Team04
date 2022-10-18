@@ -3,85 +3,87 @@ using UnityEngine.Events;
 
 namespace FG.Managers
 {
-    public class GameManager : MonoBehaviour
-    {
-        
-        public bool pausedgame = false;
-        
-        public enum GameState
-        {
-            Setup,
-            Game,
-            GameOver,
-        };
+	public class GameManager : MonoBehaviour
+	{
 
-        public static GameState State;
+		public bool pausedgame = false;
 
-        [Header("Events")]
-        [SerializeField]
-        private UnityEvent _onSetup;
+		public enum GameState
+		{
+			Setup,
+			Game,
+			GameOver,
+		};
 
-        [SerializeField]
-        private UnityEvent _onGameStart;
+		public static GameState State;
 
-        [SerializeField]
-        private UnityEvent _onGameOver;
+		[Header("Events")]
+		[SerializeField]
+		private UnityEvent _onSetup;
 
+		[SerializeField]
+		private UnityEvent _onGameStart;
 
-        void Awake()
-        {
-            UpdateGameState(GameState.Setup);
-        }
-
-        public void UpdateGameState(GameState newState)
-        {
-            State = newState;
-
-            switch (newState)
-            {
-                case GameState.Setup:
-                    Setup();
-                    break;
-                case GameState.Game:
-                    Game();
-                    break;
-                case GameState.GameOver:
-                    GameOver();
-                    break;
-                default:
-                    break;
-            }
-        }
+		[SerializeField]
+		private UnityEvent _onGameOver;
 
 
-        private void Setup()
-        {
-            _onSetup.Invoke();
+		void Awake()
+		{
+			UpdateGameState(GameState.Setup);
+		}
 
-            // Setup game
-            print("Setup");
-            GameVariables.Score = 0;
+		public void UpdateGameState(GameState newState)
+		{
+			State = newState;
 
-            UpdateGameState(GameState.Game);
-        }
+			switch (newState)
+			{
+				case GameState.Setup:
+					Setup();
+					break;
+				case GameState.Game:
+					Game();
+					break;
+				case GameState.GameOver:
+					GameOver();
+					break;
+				default:
+					break;
+			}
+		}
 
-        private void Game()
-        {
-            _onGameStart.Invoke();
 
-            // Game loop
-            print("Game");
-        }
-        
-        private void GameOver()
-        {
-            _onGameOver.Invoke();
+		private void Setup()
+		{
+			_onSetup.Invoke();
 
-            this.pausedgame = true;
+			// Setup game
+			print("Setup");
+			GameVariables.Score = 0;
 
-            // Show or load GameOver screen
-            print("GameOver Score: " + GameVariables.Score);
-        }
+			UpdateGameState(GameState.Game);
+		}
 
-    }
+		private void Game()
+		{
+			_onGameStart.Invoke();
+
+			// Game loop
+			print("Game");
+		}
+
+		private void GameOver()
+		{
+			_onGameOver.Invoke();
+
+			this.pausedgame = true;
+
+			GameVariables.UpdatePlayerPrefs();
+
+			// Show or load GameOver screen
+			print("GameOver Score: " + GameVariables.Score);
+		}
+
+	}
 }
