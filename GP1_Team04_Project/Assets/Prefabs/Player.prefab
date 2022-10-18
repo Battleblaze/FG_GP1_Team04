@@ -344,6 +344,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hoverer
       objectReference: {fileID: 0}
+    - target: {fileID: 8416272007918961125, guid: b40ce4d4258404a42ab3d8824d4f6c1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b40ce4d4258404a42ab3d8824d4f6c1a, type: 3}
 --- !u!4 &7291425717694668165 stripped
