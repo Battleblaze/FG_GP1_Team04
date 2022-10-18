@@ -43,18 +43,6 @@ public class Playermovement : MonoBehaviour
             transform.Translate( horizontalspeed * Time.deltaTime * gameObject.transform.right);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (_gameManager.pausedgame == true)
-            {
-                _gameManager.pausedgame = false;
-            }
-            else
-            {
-                _gameManager.pausedgame = true;
-            }
-        }
-
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -63,7 +51,7 @@ public class Playermovement : MonoBehaviour
         if (vec.x > 0 ) // if right 
         {
             this.right = context.performed;
-        } else if (vec.x == 0)
+        } else if (vec.x == 0) // stop moving when neither direction
         {
             this.right = false;
             this.left = false;
