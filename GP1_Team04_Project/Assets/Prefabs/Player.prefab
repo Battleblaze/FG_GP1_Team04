@@ -100,9 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0629e084b7bcc94386457a43b3a30b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lanePosition: 0
   hallway: {fileID: 8799645419579448423, guid: fe3cc446840bcc749bdf2d6156f0368e, type: 3}
-  horizontalspeed: 0
+  horizontalspeed: 10
   acceleration: 0
   maxWidth: 4
 --- !u!114 &1851752041243943301

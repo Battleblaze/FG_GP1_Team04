@@ -8,11 +8,10 @@ using UnityEngine.InputSystem;
 
 public class Playermovement : MonoBehaviour
 {
-	public int lanePosition;//A int that saves the lane the player is currently in 0is left lane 1 is middle and 2 is right
 	[SerializeField] private GameObject hallway;
 
 	private Rotate _rotate;
-	[SerializeField] private float horizontalspeed;
+	[SerializeField] private float horizontalspeed = 10.0f;
 
 	[SerializeField] private float acceleration;
 	[SerializeField] private float maxWidth;
@@ -28,13 +27,6 @@ public class Playermovement : MonoBehaviour
 	{
 		_rotate = hallway.GetComponent<Rotate>();
 		_gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-	}
-
-	// Start is called before the first frame update
-	void Start()
-	{
-		lanePosition = 1;
-		horizontalspeed = 10f;
 	}
 
 	// Update is called once per frame
@@ -87,16 +79,4 @@ public class Playermovement : MonoBehaviour
 			transform.position = old;
 		}
 	}
-
-	public void putPlayerInLane0()
-	{
-		gameObject.transform.position = new Vector3(0, -3, -3);
-		lanePosition = 0;
-	}
-	public void putPlayerInLane2()
-	{
-		gameObject.transform.position = new Vector3(0, -3, 3);
-		lanePosition = 2;
-	}
-
 }
