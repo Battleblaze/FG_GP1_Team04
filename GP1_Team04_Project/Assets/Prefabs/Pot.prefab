@@ -131,6 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
+  _hurtSound: {fileID: 0}
 --- !u!65 &5988045511777957278
 BoxCollider:
   m_ObjectHideFlags: 0
