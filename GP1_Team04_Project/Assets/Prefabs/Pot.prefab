@@ -92,6 +92,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7158070784237736834}
+  - component: {fileID: -2553180612160716676}
+  - component: {fileID: 5988045511777957278}
   m_Layer: 0
   m_Name: Pot
   m_TagString: Untagged
@@ -107,15 +109,41 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7502227151830632760}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.484116, y: -5.839116, z: -1.6541548}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -12.484116, y: -5.83, z: -1.6541548}
+  m_LocalScale: {x: 2.53, y: 2.53, z: 2.53}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2056053173658965938}
   - {fileID: 8997431280053639479}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-2553180612160716676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7502227151830632760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 592fc15e18406b34db61d3e42bd1caf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 1
+--- !u!65 &5988045511777957278
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7502227151830632760}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.61, y: 0.56, z: 0.64}
+  m_Center: {x: 0, y: 0.27, z: 0}
 --- !u!1 &8029804689420505107
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,37 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.EventSystems;
+using TMPro;
 
 public class MainMenu : MonoBehaviour
-
 {
-    [SerializeField] private GameObject firstSelected;
-    private EventSystem eventSystem;
+	[SerializeField] private TextMeshProUGUI highscore;
 
-    public AudioClip _buttonPress;
-    public AudioSource _source;
+	void OnEnable()
+	{
+		this.highscore.text = PlayerPrefs.GetInt("Highscore", 0).ToString();
+	}
 
-    void OnEnable()
-    {
-        this.eventSystem = EventSystem.current;
+	public void PlayGame()
+	{
+		SceneManager.LoadScene(1);
+	}
 
-        this.eventSystem.SetSelectedGameObject(this.firstSelected);
-    }
-
-    public void PlayGame()
-    {
-        SceneManager.LoadScene(1);
-    }
-
-   public void QuitGame()
-    {
-        Application.Quit();
-        Debug.Log("Quitting");
-    }
-
-    public void PlaySound()
-    {
-        _source.PlayOneShot(_buttonPress);
-    }
+	public void QuitGame()
+	{
+		Application.Quit();
+		Debug.Log("Quitting");
+	}
 }
