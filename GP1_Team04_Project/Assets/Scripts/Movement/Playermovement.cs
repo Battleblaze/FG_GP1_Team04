@@ -8,68 +8,75 @@ using UnityEngine.InputSystem;
 
 public class Playermovement : MonoBehaviour
 {
-    public int lanePosition;//A int that saves the lane the player is currently in 0is left lane 1 is middle and 2 is right
-    [SerializeField] private GameObject hallway;
+	public int lanePosition;//A int that saves the lane the player is currently in 0is left lane 1 is middle and 2 is right
+	[SerializeField] private GameObject hallway;
 
-    private Rotate _rotate;
-    [SerializeField]private float horizontalspeed;
+	private Rotate _rotate;
+	[SerializeField] private float horizontalspeed;
 
-    private GameManager _gameManager;
-    private bool left = false;
-    private bool right = false;
+	private GameManager _gameManager;
+	private bool left = false;
+	private bool right = false;
 
-    private void Awake()
-    {
-        _rotate = hallway.GetComponent<Rotate>();
-        _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-    }
+	private float velocity = 0.0f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        lanePosition = 1;
-        horizontalspeed = 10f;
-    }
+	private void Awake()
+	{
+		_rotate = hallway.GetComponent<Rotate>();
+		_gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
+	// Start is called before the first frame update
+	void Start()
+	{
+		lanePosition = 1;
+		horizontalspeed = 10f;
+	}
 
-        if (this.left)
-        {
-            transform.Translate( horizontalspeed * Time.deltaTime * -gameObject.transform.right);
-        } else if (this.right)
-        {
-            transform.Translate( horizontalspeed * Time.deltaTime * gameObject.transform.right);
-        }
+	// Update is called once per frame
+	void Update()
+	{
 
-    }
+		if (this.left)
+		{
+			transform.Translate(horizontalspeed * Time.deltaTime * -gameObject.transform.forward); // is forward because the map uses +x as forward while unity uses +z
+		}
+		else if (this.right)
+		{
+			transform.Translate(horizontalspeed * Time.deltaTime * gameObject.transform.forward); // is forward because the map uses +x as forward while unity uses +z
+		}
 
-    public void Move(InputAction.CallbackContext context)
-    {
-        var vec = context.ReadValue<Vector2>();
-        if (vec.x > 0 ) // if right 
-        {
-            this.right = context.performed;
-        } else if (vec.x == 0) // stop moving when neither direction
-        {
-            this.right = false;
-            this.left = false;
-        } else // else its left
-        {
-            this.left = context.performed;
-        } 
-    }
+        
+	}
 
-    public void putPlayerInLane0()
-    {
-        gameObject.transform.position = new Vector3(0,-3, -3);
-        lanePosition = 0;
-    }
-    public void putPlayerInLane2()
-    {
-        gameObject.transform.position = new Vector3(0,-3, 3);
-        lanePosition = 2;
-    }
-    
+	public void Move(InputAction.CallbackContext context)
+	{
+		var vec = context.ReadValue<Vector2>();
+		if (vec.x > 0) // if right 
+		{
+			this.right = context.performed;
+		}
+		else if (vec.x == 0) // stop moving when neither direction
+		{
+			// this.acceleration = 0.0f;
+			this.right = false;
+			this.left = false;
+		}
+		else // else its left
+		{
+			this.left = context.performed;
+		}
+	}
+
+	public void putPlayerInLane0()
+	{
+		gameObject.transform.position = new Vector3(0, -3, -3);
+		lanePosition = 0;
+	}
+	public void putPlayerInLane2()
+	{
+		gameObject.transform.position = new Vector3(0, -3, 3);
+		lanePosition = 2;
+	}
+
 }
