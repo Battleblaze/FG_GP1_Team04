@@ -6,86 +6,103 @@ using FG.Managers;
 
 namespace FG
 {
-    public class Health : MonoBehaviour
-    {
-        private enum OnDeath { nothing, disable, destroy };
+	public class Health : MonoBehaviour
+	{
+		private enum OnDeath { nothing, disable, destroy };
 
-        [HideInInspector] public float CurrentHealth;
-        [HideInInspector] public bool Dead;
+		[HideInInspector] public float CurrentHealth;
+		[HideInInspector] public bool Dead;
 
-        [SerializeField]
-        [Tooltip("Game object start health")]
-        private float _startHealth = 1;
+		[SerializeField]
+		[Tooltip("Game object start health")]
+		private float _startHealth = 1;
 
-        [Tooltip("Game object max health (same as start health if 0)")]
-        public float MaxHealth;
+		[Tooltip("Game object max health (same as start health if 0)")]
+		public float MaxHealth;
 
-        [SerializeField]
-        [Tooltip("What to do when game object dies")]
-        private OnDeath _onDeath = OnDeath.destroy;
+		[SerializeField]
+		[Tooltip("What to do when game object dies")]
+		private OnDeath _onDeath = OnDeath.destroy;
 
-        [SerializeField]
-        [Tooltip("Unity event called on damage")]
-        private UnityEvent _onDamageEvent;
+		[SerializeField]
+		[Tooltip("Unity event called on damage")]
+		private UnityEvent _onDamageEvent;
 
-        [SerializeField]
-        [Tooltip("Unity event called on death")]
-        private UnityEvent _onDeathEvent;
+		[SerializeField]
+		[Tooltip("Unity event called on death")]
+		private UnityEvent _onDeathEvent;
 
-        [SerializeField]
-        [Tooltip("Optional text mesh pro text")]
-        private TextMeshProUGUI _text;
+		[SerializeField]
+		[Tooltip("Optional text mesh pro text")]
+		private TextMeshProUGUI _text;
 
-        private void Start()
-        {
-            CurrentHealth = _startHealth;
-            if (MaxHealth == 0)
-                MaxHealth = _startHealth;
+		[SerializeField]
+		[Tooltip("Invulnerability frames in seconds")]
+		private float invulnerabilityFrames = 5.0f;
 
-            if (_text) _text.text = "Health: " + CurrentHealth.ToString();
-        }
+		private float lastDamageTime = 0f;
 
-        public void Damage(float damageAmount)
-        {
-            _onDamageEvent.Invoke();
+		private void Start()
+		{
+			CurrentHealth = _startHealth;
+			if (MaxHealth == 0)
+				MaxHealth = _startHealth;
 
-            CurrentHealth -= damageAmount;
+			if (_text) _text.text = "Health: " + CurrentHealth.ToString();
+		}
 
-            if (CurrentHealth <= 0 && !Dead)
-            {
-                _onDeathEvent.Invoke();
-                Dead = true;
+		public void Damage(float damageAmount)
+		{
+			var currentTime = Time.time;
 
-                switch (_onDeath)
-                {
-                    case OnDeath.nothing:
-                        break;
-                    case OnDeath.disable:
-                        gameObject.SetActive(false);
-                        break;
-                    case OnDeath.destroy:
-                        Destroy(gameObject);
-                        break;
-                    
-                }
-                Debug.Log("dead");
-                GameObject.Find("GameManager").GetComponent<GameManager>().UpdateGameState(GameManager.GameState.GameOver);
-            }
+			Debug.Log((this.lastDamageTime).ToString() + " " + currentTime.ToString());
+			if (this.lastDamageTime >= currentTime)
+			{
+				Debug.Log("skipped");
+				return;
+			}
 
-            if (_text) _text.text = CurrentHealth.ToString();
-        }
+			this.lastDamageTime = currentTime + this.invulnerabilityFrames;
 
-        public void Heal(float healAmount = 0f)
-        {
-            CurrentHealth += healAmount;
+			_onDamageEvent.Invoke();
 
-            if (CurrentHealth > MaxHealth) // Don't heal over maxHealth
-                CurrentHealth = MaxHealth;
+			CurrentHealth -= damageAmount;
 
-            if (Dead && CurrentHealth > 0)
-                Dead = false;
+			if (CurrentHealth <= 0 && !Dead)
+			{
+				_onDeathEvent.Invoke();
+				Dead = true;
 
-            if (_text) _text.text = CurrentHealth.ToString();
-        }
-    }
+				switch (_onDeath)
+				{
+					case OnDeath.nothing:
+						break;
+					case OnDeath.disable:
+						gameObject.SetActive(false);
+						break;
+					case OnDeath.destroy:
+						Destroy(gameObject);
+						break;
+
+				}
+				Debug.Log("dead");
+				GameObject.Find("GameManager").GetComponent<GameManager>().UpdateGameState(GameManager.GameState.GameOver);
+			}
+
+			if (_text) _text.text = CurrentHealth.ToString();
+		}
+
+		public void Heal(float healAmount = 0f)
+		{
+			CurrentHealth += healAmount;
+
+			if (CurrentHealth > MaxHealth) // Don't heal over maxHealth
+				CurrentHealth = MaxHealth;
+
+			if (Dead && CurrentHealth > 0)
+				Dead = false;
+
+			if (_text) _text.text = "Health: " + CurrentHealth.ToString();
+		}
+	}
 }

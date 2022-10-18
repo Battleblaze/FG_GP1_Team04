@@ -1,21 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FG.Managers;
 
 public class Speedmanager : MonoBehaviour
 {
-    public float speed;
+	public float speed = 10f;
 
-    [SerializeField] private float speedmodder;
-    // Start is called before the first frame update
-    void Start()
-    {
-        speed = 10f;
-    }
+	[SerializeField] private float speedmodder;
 
-    // Update is called once per frame
-    void Update()
-    {
-        speed += Time.fixedDeltaTime * speedmodder;
-    }
+	// Update is called once per frame
+	void Update()
+	{
+
+		if (GameObject.Find("GameManager").GetComponent<GameManager>().pausedgame)
+		{
+			return;
+		}
+
+		speed += Time.fixedDeltaTime * speedmodder;
+	}
 }
