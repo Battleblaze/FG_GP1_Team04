@@ -6,17 +6,22 @@ public class FollowCamera : MonoBehaviour
 {
 	[SerializeField] private Transform target;
 
+	[SerializeField] private float division = 2f;
+
 	// Update is called once per frame
 	void Update()
 	{
-		var targetPosition = target.position;
+		float offset;
+		if (target != null)
+		{
+			offset = target.position.z;
+		}
+		else
+		{
+			offset = 0f;
+		}
 
-		var currentPosition = this.gameObject.transform.position;
 
-		targetPosition.y = 0;
-
-		currentPosition.y = 0;
-
-		//this.gameObject.transform.forward = targetPosition;
+		transform.rotation = Quaternion.Euler(0.0f, -90f + offset / this.division, 0.0f);
 	}
 }
