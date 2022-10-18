@@ -129,6 +129,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _text: {fileID: 0}
+  invulnerabilityFrames: 0.75
 --- !u!136 &2428290078676597217
 CapsuleCollider:
   m_ObjectHideFlags: 0
