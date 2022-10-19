@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class AnimationController : MonoBehaviour
 {
-	[SerializeField] private Animator animator;
+	[SerializeField] private Animator characterAnimator;
+	[SerializeField] private Animator boardAnimator;
 	[SerializeField] private Playermovement movementScript;
 
 	// Start is called before the first frame update
@@ -16,7 +17,7 @@ public class AnimationController : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		float normalizedTime = this.animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+		float normalizedTime = this.characterAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime;
 
 		if (this.movementScript.getVelocity < 0f)
 		{
@@ -24,8 +25,8 @@ public class AnimationController : MonoBehaviour
 			{
 				return;
 			}
-			this.animator.speed = 0.0f;
-			this.animator.Play("Normal", 0, 0.253f); // The 19th frame
+			this.Speed(0);
+			this.Play("Normal", 0.253f); // The 19th frame
 			return;
 		}
 
@@ -35,11 +36,23 @@ public class AnimationController : MonoBehaviour
 			{
 				return;
 			}
-			this.animator.speed = 0.0f;
-			this.animator.Play("Normal", 0, 0.0f); // the first frame
+			this.Speed(0);
+			this.Play("Normal", 0.0f); // The first frame
 			return;
 		}
-		this.animator.speed = 1.0f;
-		this.animator.Play("Normal");
+
+		this.Speed(1);
+	}
+
+	void Speed(float speed)
+	{
+		this.characterAnimator.speed = speed;
+		this.boardAnimator.speed = speed;
+	}
+
+	void Play(string name, float normalizedTime)
+	{
+		this.characterAnimator.Play(name, 0, normalizedTime);
+		this.boardAnimator.Play(name, 0, normalizedTime);
 	}
 }
