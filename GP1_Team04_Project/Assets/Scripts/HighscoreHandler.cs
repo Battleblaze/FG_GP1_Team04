@@ -36,14 +36,14 @@ public class HighscoreHandler : MonoBehaviour
 
 	void NewScores(Highscore[] highscores)
 	{
-		for (int i = highscores.Length - 1; i >= 0; i--)
+		foreach (var highscore in highscores)
 		{
 			GameObject score = Instantiate(this.textPrefab, this.parent, false);
 
 			var handler = score.GetComponent<HighscoreText>();
 
-			handler.userName = highscores[i].name;
-			handler.score = highscores[i].score;
+			handler.userName = highscore.name;
+			handler.score = highscore.score;
 		}
 	}
 
@@ -53,7 +53,7 @@ public class HighscoreHandler : MonoBehaviour
 		switch (contentType)
 		{
 			case ContentType.TopTen:
-				uri = "http://129.151.223.57/highscores";
+				uri = "http://129.151.223.57/top_ten/0.1";
 				break;
 			case ContentType.All:
 				uri = "http://129.151.223.57/highscores";

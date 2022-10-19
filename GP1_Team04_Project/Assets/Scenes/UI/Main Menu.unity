@@ -1979,7 +1979,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contentParent: {fileID: 2537874612390249399}
   textPrefab: {fileID: 3186561237041428945, guid: 1057c110f95c5254fb0f62c444175e0c, type: 3}
-  contentType: 1
+  contentType: 0
   parent: {fileID: 2537874612390249396}
 --- !u!114 &2537874612859708462
 MonoBehaviour:
@@ -2489,7 +2489,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2537874612892579628}
   m_Direction: 0
   m_Value: 1
-  m_Size: 0.9999997
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
