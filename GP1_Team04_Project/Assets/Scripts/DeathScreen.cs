@@ -17,6 +17,13 @@ public class DeathScreen : MonoBehaviour
 	private void OnEnable()
 	{
 		this.scoreText.text = FG.GameVariables.Score.ToString();
+
+		Cursor.lockState = CursorLockMode.None;
+	}
+
+	private void OnDisable()
+	{
+		Cursor.lockState = CursorLockMode.Locked;
 	}
 
 	public void Submit()

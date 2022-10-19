@@ -5,6 +5,7 @@ using FG.Managers;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using FG.Managers;
 
 public class Playermovement : MonoBehaviour
 {
@@ -20,13 +21,14 @@ public class Playermovement : MonoBehaviour
 
 	[SerializeField] private float deadZone = 0.15f;
 
+	[SerializeField] private float walldecelerationModifier = 5.0f;
+
 	private GameManager _gameManager;
 	private bool left = false;
 	private bool right = false;
 
 	private float velocity = 0.0f;
 
-	// private float oldVelocity = velocity;
 
 	public float getVelocity
 	{
@@ -43,7 +45,10 @@ public class Playermovement : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		// this.oldVelocity = this.velocity;
+		if (GameObject.Find("GameManager").GetComponent<GameManager>().pausedgame)
+		{
+			return;
+		}
 
 		if (this.left)
 		{
@@ -115,7 +120,7 @@ public class Playermovement : MonoBehaviour
 			old.z = this.maxWidth;
 			transform.position = old;
 
-			this.Decelerate(this.acceleration * this.decelerationModifier * 2);
+			this.Decelerate(this.acceleration * this.decelerationModifier * this.walldecelerationModifier);
 		}
 		else if (transform.position.z < -this.maxWidth)
 		{
@@ -123,7 +128,7 @@ public class Playermovement : MonoBehaviour
 			old.z = -this.maxWidth;
 			transform.position = old;
 
-			this.Decelerate(this.acceleration * this.decelerationModifier * 2);
+			this.Decelerate(this.acceleration * this.decelerationModifier * this.walldecelerationModifier);
 		}
 	}
 }
