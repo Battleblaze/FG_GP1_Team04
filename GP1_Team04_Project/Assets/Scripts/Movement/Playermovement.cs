@@ -26,6 +26,8 @@ public class Playermovement : MonoBehaviour
 
 	private float velocity = 0.0f;
 
+	// private float oldVelocity = velocity;
+
 	public float getVelocity
 	{
 		get { return this.velocity; }
@@ -41,7 +43,7 @@ public class Playermovement : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		Debug.Log(this.velocity);
+		// this.oldVelocity = this.velocity;
 
 		if (this.left)
 		{
@@ -53,7 +55,7 @@ public class Playermovement : MonoBehaviour
 		}
 		else // If no button is pressed decelerate
 		{
-			this.Decelerate();
+			this.Decelerate(this.acceleration * this.decelerationModifier);
 		}
 
 		if (this.velocity >= this.maxSpeed) // Cap the speed to horizontal speed
@@ -70,15 +72,15 @@ public class Playermovement : MonoBehaviour
 		this.CheckWall();
 	}
 
-	void Decelerate()
+	void Decelerate(float value)
 	{
 		if (this.velocity < 0)
 		{
-			this.velocity += this.acceleration * Time.deltaTime * this.decelerationModifier;
+			this.velocity += value * Time.deltaTime;
 		}
 		else if (this.velocity > 0)
 		{
-			this.velocity -= this.acceleration * Time.deltaTime * this.decelerationModifier;
+			this.velocity -= value * Time.deltaTime;
 		}
 
 		if (this.velocity > -this.deadZone && this.velocity < this.deadZone)
@@ -112,12 +114,16 @@ public class Playermovement : MonoBehaviour
 			var old = transform.position;
 			old.z = this.maxWidth;
 			transform.position = old;
+
+			this.Decelerate(this.acceleration * this.decelerationModifier * 2);
 		}
 		else if (transform.position.z < -this.maxWidth)
 		{
 			var old = transform.position;
 			old.z = -this.maxWidth;
 			transform.position = old;
+
+			this.Decelerate(this.acceleration * this.decelerationModifier * 2);
 		}
 	}
 }
