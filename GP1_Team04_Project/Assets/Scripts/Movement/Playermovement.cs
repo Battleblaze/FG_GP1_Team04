@@ -22,6 +22,10 @@ public class Playermovement : MonoBehaviour
 
 	private float velocity = 0.0f;
 
+	public float getVelocity {
+		get { return this.velocity; }
+	}
+
 
 	private void Awake()
 	{
@@ -61,8 +65,7 @@ public class Playermovement : MonoBehaviour
 			this.velocity = -this.horizontalspeed;
 		}
 
-		transform.Translate(this.velocity * Time.deltaTime * gameObject.transform.forward); // is forward because the map uses +x as forward while unity uses +z
-		// transform.Translate(horizontalspeed * Time.deltaTime * gameObject.transform.forward); // is forward because the map uses +x as forward while unity uses +z
+		transform.Translate(this.velocity * Time.deltaTime * Vector3.forward, Space.World); // is forward because the map uses +x as forward while unity uses +z
 
 		this.CheckWall();
 	}
