@@ -232,7 +232,7 @@ ModelImporter:
       takeName: Board|Action
       internalID: 0
       firstFrame: 29
-      lastFrame: 29
+      lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -261,7 +261,7 @@ ModelImporter:
       takeName: Board|Action
       internalID: 0
       firstFrame: 10
-      lastFrame: 10
+      lastFrame: 11
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -290,7 +290,7 @@ ModelImporter:
       takeName: Action.001
       internalID: 0
       firstFrame: 10
-      lastFrame: 10
+      lastFrame: 11
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -319,7 +319,7 @@ ModelImporter:
       takeName: Action.001
       internalID: 0
       firstFrame: 29
-      lastFrame: 29
+      lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

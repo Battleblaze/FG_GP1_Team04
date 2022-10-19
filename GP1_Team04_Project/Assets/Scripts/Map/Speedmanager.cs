@@ -18,6 +18,6 @@ public class Speedmanager : MonoBehaviour
 			return;
 		}
 
-		speed += Time.fixedDeltaTime * speedmodder;
+		speed += Time.deltaTime * speedmodder;
 	}
 }
