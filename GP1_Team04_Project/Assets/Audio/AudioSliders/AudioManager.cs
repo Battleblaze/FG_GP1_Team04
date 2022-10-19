@@ -18,6 +18,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource hurtSoundSource;
     [SerializeField] List<AudioClip> hurtSoundClip = new List<AudioClip>();
 
+    [SerializeField] AudioSource buttonPressSource;
+    [SerializeField] private AudioClip buttonPressClip;
+
     public const string MUSIC_KEY = "MusicVolume";
     public const string SFX_KEY = "SFXVolume";
 
@@ -61,6 +64,11 @@ public class AudioManager : MonoBehaviour
     {
         AudioClip Hurtclip = hurtSoundClip[Random.Range(0, hurtSoundClip.Count)];
         hurtSoundSource.PlayOneShot(Hurtclip);
+    }
+    public void ButtonPress()
+    {
+        AudioClip buttonClip = buttonPressClip;
+        buttonPressSource.PlayOneShot(buttonClip);
     }
 
 }
