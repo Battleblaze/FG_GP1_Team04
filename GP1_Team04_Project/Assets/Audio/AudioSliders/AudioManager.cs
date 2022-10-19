@@ -9,17 +9,17 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] AudioMixer mixer;
 
-    [SerializeField] AudioSource coinCollectSource;
-    [SerializeField] List<AudioClip> coinCollectClip = new List<AudioClip>();
-
-    [SerializeField] AudioSource HPCollectSource;
-    [SerializeField] List<AudioClip> HPCollectClip = new List<AudioClip>();
-
-    [SerializeField] AudioSource hurtSoundSource;
-    [SerializeField] List<AudioClip> hurtSoundClip = new List<AudioClip>();
-
     [SerializeField] AudioSource buttonPressSource;
     [SerializeField] private AudioClip buttonPressClip;
+
+    [SerializeField] AudioSource HPCollectSource;
+    [SerializeField] private AudioClip HPCollectClip;
+
+    [SerializeField] AudioSource hurtSoundSource;
+    [SerializeField] private AudioClip hurtSoundClip;
+
+    [SerializeField] AudioSource coinCollectSource;
+    [SerializeField] private AudioClip coinCollectClip;
 
     public const string MUSIC_KEY = "MusicVolume";
     public const string SFX_KEY = "SFXVolume";
@@ -50,19 +50,19 @@ public class AudioManager : MonoBehaviour
 
     public void CoinCollectSFX()
     {
-        AudioClip coinclip = coinCollectClip[Random.Range(0, coinCollectClip.Count)];
+        AudioClip coinclip = coinCollectClip;
         coinCollectSource.PlayOneShot(coinclip);
     }
 
     public void HPCollectSFX()
     {
-        AudioClip HPclip = HPCollectClip[Random.Range(0, HPCollectClip.Count)];
+        AudioClip HPclip = HPCollectClip;
         HPCollectSource.PlayOneShot(HPclip);
     }
 
     public void HurtSoundSFX()
     {
-        AudioClip Hurtclip = hurtSoundClip[Random.Range(0, hurtSoundClip.Count)];
+        AudioClip Hurtclip = hurtSoundClip;
         hurtSoundSource.PlayOneShot(Hurtclip);
     }
     public void ButtonPress()

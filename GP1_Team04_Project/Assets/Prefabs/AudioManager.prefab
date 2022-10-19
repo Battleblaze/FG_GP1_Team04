@@ -43,8 +43,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2584479631898131415, guid: 41abb95cfbaec384581eccd680f573ce, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.75
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -171,7 +171,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2584479631898131415, guid: 41abb95cfbaec384581eccd680f573ce, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -299,8 +299,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2584479631898131415, guid: 41abb95cfbaec384581eccd680f573ce, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.791
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -530,17 +530,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: 41abb95cfbaec384581eccd680f573ce, type: 2}
-  coinCollectSource: {fileID: 2867980435353896508}
-  coinCollectClip:
-  - {fileID: 8300000, guid: e62568dc348a4844fa32021f5e339707, type: 3}
+  buttonPressSource: {fileID: 3645625589906057303}
+  buttonPressClip: {fileID: 8300000, guid: aed92b6c0df5cb74297096f7b916580a, type: 3}
   HPCollectSource: {fileID: 2867980434883160854}
-  HPCollectClip:
-  - {fileID: 8300000, guid: 67f8556cade6a1c49a3741561fba7933, type: 3}
+  HPCollectClip: {fileID: 8300000, guid: 1a9717e5e12e5154fa618f9e40202503, type: 3}
   hurtSoundSource: {fileID: 2867980435152452188}
-  hurtSoundClip:
-  - {fileID: 8300000, guid: 8d10fde6f3065e3439dab6b2d499e422, type: 3}
-  buttonPressSource: {fileID: 0}
-  buttonPressClip: {fileID: 0}
+  hurtSoundClip: {fileID: 8300000, guid: 8d10fde6f3065e3439dab6b2d499e422, type: 3}
+  coinCollectSource: {fileID: 2867980435353896508}
+  coinCollectClip: {fileID: 8300000, guid: e62568dc348a4844fa32021f5e339707, type: 3}
 --- !u!1 &6826921380958198431
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,7 +581,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2584479631898131415, guid: 41abb95cfbaec384581eccd680f573ce, type: 2}
   m_audioClip: {fileID: 8300000, guid: aed92b6c0df5cb74297096f7b916580a, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
