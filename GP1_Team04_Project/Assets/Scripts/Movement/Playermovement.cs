@@ -13,7 +13,7 @@ public class Playermovement : MonoBehaviour
 	private Rotate _rotate;
 	[SerializeField] private float horizontalspeed = 10.0f;
 
-	[SerializeField] private float acceleration;
+	[SerializeField] private float acceleration = 2.0f;
 	[SerializeField] private float maxWidth;
 
 	private GameManager _gameManager;
@@ -32,15 +32,37 @@ public class Playermovement : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-
 		if (this.left)
 		{
-			transform.Translate(horizontalspeed * Time.deltaTime * -gameObject.transform.forward); // is forward because the map uses +x as forward while unity uses +z
+			this.velocity -= this.acceleration * Time.deltaTime;
 		}
 		else if (this.right)
 		{
-			transform.Translate(horizontalspeed * Time.deltaTime * gameObject.transform.forward); // is forward because the map uses +x as forward while unity uses +z
+			this.velocity += this.acceleration * Time.deltaTime;
 		}
+		else // If no button is pressed deselerate
+		{
+			if (this.velocity < 0)
+			{
+				this.velocity += this.acceleration * Time.deltaTime * 2f;
+			}
+			else if (this.velocity > 0)
+			{
+				this.velocity -= this.acceleration * Time.deltaTime * 2f;
+			}
+		}
+
+		if (this.velocity >= this.horizontalspeed) // Cap the speed to horizontal speed
+		{
+			this.velocity = this.horizontalspeed;
+		}
+		else if (this.velocity <= -this.horizontalspeed)
+		{
+			this.velocity = -this.horizontalspeed;
+		}
+
+		transform.Translate(this.velocity * Time.deltaTime * gameObject.transform.forward); // is forward because the map uses +x as forward while unity uses +z
+		// transform.Translate(horizontalspeed * Time.deltaTime * gameObject.transform.forward); // is forward because the map uses +x as forward while unity uses +z
 
 		this.CheckWall();
 	}
@@ -54,7 +76,6 @@ public class Playermovement : MonoBehaviour
 		}
 		else if (vec.x == 0) // stop moving when neither direction
 		{
-			// this.acceleration = 0.0f;
 			this.right = false;
 			this.left = false;
 		}

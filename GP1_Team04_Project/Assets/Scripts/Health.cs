@@ -89,7 +89,7 @@ namespace FG
 				GameObject.Find("GameManager").GetComponent<GameManager>().UpdateGameState(GameManager.GameState.GameOver);
 			}
 
-			if (_text) _text.text = CurrentHealth.ToString();
+			if (_text) _text.text = "Health: " + CurrentHealth.ToString();
 		}
 
 		public void Heal(float healAmount = 0f)
@@ -97,10 +97,15 @@ namespace FG
 			CurrentHealth += healAmount;
 
 			if (CurrentHealth > MaxHealth) // Don't heal over maxHealth
+			{
 				CurrentHealth = MaxHealth;
+				if (_text) _text.text = "Max Health" + CurrentHealth.ToString();
+				return;
+			}
 
 			if (Dead && CurrentHealth > 0)
 				Dead = false;
+
 
 			if (_text) _text.text = "Health: " + CurrentHealth.ToString();
 		}
