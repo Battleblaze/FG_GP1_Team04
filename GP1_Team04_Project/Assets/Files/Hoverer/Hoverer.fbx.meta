@@ -26,12 +26,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Flames
-    second: {fileID: 2100000, guid: 634d2bb3a155bc04ca3ab0f7a9959056, type: 2}
+    second: {fileID: 2100000, guid: f30966b41e942b1428ac5f7509db53e0, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Hoverer
-    second: {fileID: 2100000, guid: 37647fd8e8d4d814fb8535866ab324bd, type: 2}
+    second: {fileID: 2100000, guid: 2b5131a059e3dba449f2ce5865c717f9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -41,7 +41,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: board
-    second: {fileID: 2100000, guid: 0eb77d63bbc6cad4dba93deacdd39eee, type: 2}
+    second: {fileID: 2100000, guid: fefd9eb5cce8ac740a3bbd60155222fd, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
