@@ -107,6 +107,8 @@ MonoBehaviour:
   horizontalspeed: 10
   acceleration: 15
   maxWidth: 4
+  decelerationModifier: 2
+  deadZone: 0.15
 --- !u!114 &1851752041243943301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,8 +278,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08727ce0c5d19b64a846fdfa4038adce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yRotationDivider: 0.25
-  xRotationDivider: 0.25
+  yRotationDivider: 0.4
+  xRotationDivider: 0.4
   movementScript: {fileID: 2428290078676597213}
 --- !u!114 &2790886350336308390
 MonoBehaviour:

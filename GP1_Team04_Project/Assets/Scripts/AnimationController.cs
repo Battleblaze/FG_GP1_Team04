@@ -11,25 +11,35 @@ public class AnimationController : MonoBehaviour
 	void Start()
 	{
 		// this.animator.speed = 1.2f;
-
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		if (this.movementScript.getVelocity < -0.15f)
+		float normalizedTime = this.animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+
+		if (this.movementScript.getVelocity < 0f)
 		{
-			this.animator.CrossFade("Right", 0.6f);
+			if (normalizedTime != 0.253f)
+			{
+				return;
+			}
+			this.animator.speed = 0.0f;
+			this.animator.Play("Normal", 0, 0.253f); // The 19th frame
 			return;
 		}
 
-		if (this.movementScript.getVelocity > 0.15f)
+		if (this.movementScript.getVelocity > 0f)
 		{
-			Debug.Log("abiw");
-			this.animator.CrossFade("Left", 0.6f);
+			if (normalizedTime != 0.0f)
+			{
+				return;
+			}
+			this.animator.speed = 0.0f;
+			this.animator.Play("Normal", 0, 0.0f); // the first frame
 			return;
 		}
-
-		this.animator.CrossFade("Normal", 0.6f);
+		this.animator.speed = 1.0f;
+		this.animator.Play("Normal");
 	}
 }
