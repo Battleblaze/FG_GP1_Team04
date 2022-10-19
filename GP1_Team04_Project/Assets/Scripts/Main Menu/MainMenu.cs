@@ -10,9 +10,9 @@ public class MainMenu : MonoBehaviour
 
 	void OnEnable()
 	{
-		Debug.Log(PlayerPrefs.GetInt("Highscore").ToString());
-
 		this.highscore.text = PlayerPrefs.GetInt("Highscore", 0).ToString();
+
+		Cursor.lockState = CursorLockMode.None;
 	}
 
 	public void PlayGame()

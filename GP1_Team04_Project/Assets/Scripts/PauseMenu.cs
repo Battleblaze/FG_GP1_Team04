@@ -13,10 +13,14 @@ public class PauseMenu : MonoBehaviour
 	{
 		this._gameManager.pausedgame = true;
 		this._score.text = FG.GameVariables.Score.ToString();
+
+		Cursor.lockState = CursorLockMode.None;
 	}
 
 	void OnDisable()
 	{
 		this._gameManager.pausedgame = false;
+
+		Cursor.lockState = CursorLockMode.Locked;
 	}
 }

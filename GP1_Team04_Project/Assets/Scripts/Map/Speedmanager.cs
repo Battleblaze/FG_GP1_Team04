@@ -7,7 +7,7 @@ public class Speedmanager : MonoBehaviour
 {
 	public float speed = 10f;
 
-	[SerializeField] private float speedmodder;
+	[SerializeField] private float speedmodder = 0.003f;
 
 	// Update is called once per frame
 	void Update()
@@ -18,6 +18,6 @@ public class Speedmanager : MonoBehaviour
 			return;
 		}
 
-		speed += Time.fixedDeltaTime * speedmodder;
+		speed += Time.deltaTime * speedmodder;
 	}
 }

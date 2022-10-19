@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 21ca1756eb83ab4478e8f4fb17799a70
+guid: 533d92605bb1efe428b7c5b92dd689ce
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,13 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Plant
-    second: {fileID: 2100000, guid: 5b727eea62f05fc43823f31ff9f69c8b, type: 2}
+      name: Pot
+    second: {fileID: 2100000, guid: 356976a68ed717246b1f68ef1d5f3fef, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Pot
-    second: {fileID: 2100000, guid: c8252eebcf97e3f408631d7917091c0f, type: 2}
+      name: lambert1
+    second: {fileID: 2100000, guid: 67e748962ecf06f408eef5b176c5117b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1.001
+    second: {fileID: 2100000, guid: cdb3094256823924db3888c5bd8501b8, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -31,6 +31,8 @@ namespace FG.Managers
 		void Awake()
 		{
 			UpdateGameState(GameState.Setup);
+
+			Cursor.lockState = CursorLockMode.Locked;
 		}
 
 		public void UpdateGameState(GameState newState)
