@@ -1497,6 +1497,34 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2428290078676597213, guid: 1f2d7bdf31154244a87f1ed64e617d5c, type: 3}
+      propertyPath: maxWidth
+      value: 2.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2428290078676597213, guid: 1f2d7bdf31154244a87f1ed64e617d5c, type: 3}
+      propertyPath: acceleration
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2428290078676597213, guid: 1f2d7bdf31154244a87f1ed64e617d5c, type: 3}
+      propertyPath: horizontalspeed
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 2428290078676597213, guid: 1f2d7bdf31154244a87f1ed64e617d5c, type: 3}
+      propertyPath: decelerationModifier
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2428290078676597217, guid: 1f2d7bdf31154244a87f1ed64e617d5c, type: 3}
+      propertyPath: m_Height
+      value: 2.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 2428290078676597217, guid: 1f2d7bdf31154244a87f1ed64e617d5c, type: 3}
+      propertyPath: m_Radius
+      value: 0.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 2428290078676597217, guid: 1f2d7bdf31154244a87f1ed64e617d5c, type: 3}
+      propertyPath: m_Center.y
+      value: -0.17
+      objectReference: {fileID: 0}
     - target: {fileID: 2428290078676597217, guid: 1f2d7bdf31154244a87f1ed64e617d5c, type: 3}
       propertyPath: m_IsTrigger
       value: 1
