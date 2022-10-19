@@ -9,9 +9,11 @@ public class RotateWithMovement : MonoBehaviour
 
 	[SerializeField] private Playermovement movementScript;
 
+	[SerializeField] private float deadZone = 0.15f;
+
 	void Update()
 	{
-		if (this.movementScript.getVelocity > -0.1 && this.movementScript.getVelocity < 0.1)
+		if (this.movementScript.getVelocity > -this.deadZone && this.movementScript.getVelocity < this.deadZone)
 		{
 			return;
 		}

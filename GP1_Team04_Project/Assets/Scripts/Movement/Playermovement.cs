@@ -16,13 +16,18 @@ public class Playermovement : MonoBehaviour
 	[SerializeField] private float acceleration = 2.0f;
 	[SerializeField] private float maxWidth;
 
+	[SerializeField] private float decelerationModifier = 2.0f;
+
+	[SerializeField] private float deadZone = 0.15f;
+
 	private GameManager _gameManager;
 	private bool left = false;
 	private bool right = false;
 
 	private float velocity = 0.0f;
 
-	public float getVelocity {
+	public float getVelocity
+	{
 		get { return this.velocity; }
 	}
 
@@ -44,16 +49,9 @@ public class Playermovement : MonoBehaviour
 		{
 			this.velocity += this.acceleration * Time.deltaTime;
 		}
-		else // If no button is pressed deselerate
+		else // If no button is pressed decelerate
 		{
-			if (this.velocity < 0)
-			{
-				this.velocity += this.acceleration * Time.deltaTime * 2f;
-			}
-			else if (this.velocity > 0)
-			{
-				this.velocity -= this.acceleration * Time.deltaTime * 2f;
-			}
+			this.Decelerate();
 		}
 
 		if (this.velocity >= this.horizontalspeed) // Cap the speed to horizontal speed
@@ -68,6 +66,23 @@ public class Playermovement : MonoBehaviour
 		transform.Translate(this.velocity * Time.deltaTime * Vector3.forward, Space.World); // is forward because the map uses +x as forward while unity uses +z
 
 		this.CheckWall();
+	}
+
+	void Decelerate()
+	{
+		if (this.velocity < 0)
+		{
+			this.velocity += this.acceleration * Time.deltaTime * this.decelerationModifier;
+		}
+		else if (this.velocity > 0)
+		{
+			this.velocity -= this.acceleration * Time.deltaTime * this.decelerationModifier;
+		}
+
+		if (this.velocity > -this.deadZone && this.velocity < this.deadZone)
+		{
+			this.velocity = 0;
+		}
 	}
 
 	public void Move(InputAction.CallbackContext context)
