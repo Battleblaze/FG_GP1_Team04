@@ -11,7 +11,7 @@ public class Playermovement : MonoBehaviour
 	[SerializeField] private GameObject hallway;
 
 	private Rotate _rotate;
-	[SerializeField] private float horizontalspeed = 10.0f;
+	[SerializeField] private float maxSpeed = 10.0f;
 
 	[SerializeField] private float acceleration = 2.0f;
 	[SerializeField] private float maxWidth;
@@ -41,6 +41,8 @@ public class Playermovement : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		Debug.Log(this.velocity);
+
 		if (this.left)
 		{
 			this.velocity -= this.acceleration * Time.deltaTime;
@@ -54,13 +56,13 @@ public class Playermovement : MonoBehaviour
 			this.Decelerate();
 		}
 
-		if (this.velocity >= this.horizontalspeed) // Cap the speed to horizontal speed
+		if (this.velocity >= this.maxSpeed) // Cap the speed to horizontal speed
 		{
-			this.velocity = this.horizontalspeed;
+			this.velocity = this.maxSpeed;
 		}
-		else if (this.velocity <= -this.horizontalspeed)
+		else if (this.velocity <= -this.maxSpeed)
 		{
-			this.velocity = -this.horizontalspeed;
+			this.velocity = -this.maxSpeed;
 		}
 
 		transform.Translate(this.velocity * Time.deltaTime * Vector3.forward, Space.World); // is forward because the map uses +x as forward while unity uses +z

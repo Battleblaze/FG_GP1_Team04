@@ -11,7 +11,7 @@ ModelImporter:
     second: Subtract_strip
   - first:
       74: -7079218833480922270
-    second: move
+    second: old
   - first:
       74: 5801001076753610610
     second: Board|Action
@@ -23,7 +23,7 @@ ModelImporter:
     second: move
   - first:
       74: 6671811203697941952
-    second: aaaagh
+    second: move
   - first:
       74: 7364051047179379289
     second: board_left
@@ -141,10 +141,10 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: aaaagh
+      name: move
       takeName: metarig|Action.001
       internalID: 0
-      firstFrame: 0
+      firstFrame: 10
       lastFrame: 49
       wrapMode: 0
       orientationOffsetY: 0
@@ -152,7 +152,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -199,7 +199,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: move
+      name: old
       takeName: metarig|Action.001
       internalID: 0
       firstFrame: 10
