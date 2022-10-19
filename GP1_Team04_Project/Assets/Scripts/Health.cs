@@ -55,7 +55,6 @@ namespace FG
 		{
 			var currentTime = Time.time;
 
-			Debug.Log((this.lastDamageTime).ToString() + " " + currentTime.ToString());
 			if (this.lastDamageTime >= currentTime)
 			{
 				Debug.Log("skipped");

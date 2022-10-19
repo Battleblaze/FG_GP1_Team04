@@ -7,7 +7,7 @@ public class Speedmanager : MonoBehaviour
 {
 	public float speed = 10f;
 
-	[SerializeField] private float speedmodder;
+	[SerializeField] private float speedmodder = 0.003f;
 
 	// Update is called once per frame
 	void Update()

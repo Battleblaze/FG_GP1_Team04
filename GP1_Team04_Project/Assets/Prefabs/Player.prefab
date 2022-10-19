@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5921695259439207357}
   - component: {fileID: 6346097097585515863}
   - component: {fileID: 2790886350336308390}
+  - component: {fileID: 5574758646842536608}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -104,7 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hallway: {fileID: 8799645419579448423, guid: fe3cc446840bcc749bdf2d6156f0368e, type: 3}
   horizontalspeed: 10
-  acceleration: 5
+  acceleration: 15
   maxWidth: 4
 --- !u!114 &1851752041243943301
 MonoBehaviour:
@@ -291,6 +292,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
+--- !u!114 &5574758646842536608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2428290078676597219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc6dbbec65411746b070af46d06757e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 2638098461455385643}
+  movementScript: {fileID: 2428290078676597213}
 --- !u!1001 &7114245343762184814
 PrefabInstance:
   m_ObjectHideFlags: 0
