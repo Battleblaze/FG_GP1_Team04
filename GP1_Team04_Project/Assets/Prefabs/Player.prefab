@@ -110,7 +110,7 @@ MonoBehaviour:
   hallway: {fileID: 8799645419579448423, guid: fe3cc446840bcc749bdf2d6156f0368e, type: 3}
   maxSpeed: 10
   acceleration: 15
-  maxWidth: 2.3
+  maxWidth: 2.4
   decelerationModifier: 0.5
   deadZone: 0.15
   walldecelerationModifier: 5

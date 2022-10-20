@@ -1623,7 +1623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  speedmodder: 0.009
+  speedmodder: 0.04
 --- !u!4 &1933894658
 Transform:
   m_ObjectHideFlags: 0
