@@ -9,7 +9,12 @@ ModelImporter:
   - first:
       74: 3728646541884037669
     second: board_move
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Flames
+    second: {fileID: 2100000, guid: f30966b41e942b1428ac5f7509db53e0, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
