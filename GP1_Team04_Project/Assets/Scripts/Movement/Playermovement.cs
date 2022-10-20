@@ -5,7 +5,6 @@ using FG.Managers;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using FG.Managers;
 
 public class Playermovement : MonoBehaviour
 {

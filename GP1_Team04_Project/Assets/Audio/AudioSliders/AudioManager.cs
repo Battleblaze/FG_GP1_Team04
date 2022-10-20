@@ -1,9 +1,6 @@
-
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
-using FG.Managers;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -11,14 +8,13 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] AudioMixer mixer;
     [SerializeField] AudioSource SFXSource;
-    [SerializeField] AudioSource alwaysOnSource;
+    [SerializeField] AudioSource hoverboardSource;
+    [SerializeField] AudioSource bmSource;
 
     [SerializeField] private AudioClip buttonPressClip;
     [SerializeField] private AudioClip HPCollectClip;
     [SerializeField] private AudioClip hurtSoundClip;
     [SerializeField] private AudioClip coinCollectClip;
-    [SerializeField] private AudioClip backgroundClip;
-    [SerializeField] private AudioClip hoverboardClip;
 
     public const string MUSIC_KEY = "MusicVolume";
     public const string SFX_KEY = "SFXVolume";
@@ -36,6 +32,7 @@ public class AudioManager : MonoBehaviour
         }
         LoadVolume();
     }
+
     void LoadVolume() //Volume saved in VolumeSettings
     {
         float musicVolume = PlayerPrefs.GetFloat(MUSIC_KEY, 1f);
@@ -70,18 +67,13 @@ public class AudioManager : MonoBehaviour
         Debug.Log("ButtonPressed");
     }
 
-    //public void PauseAudio()
-    //{
+    public void PauseAudio()
+    {
+        hoverboardSource.Pause();
+    }
 
-    //    if (GameObject.Find("GameManager").GetComponent<GameManager>().pausedgame == true)
-    //    {
-    //        alwaysOnSource.Pause();
-            
-    //    }
-    //    else
-    //    {
-    //        alwaysOnSource.Play();
-    //        Debug.Log("NotPaused");  
-    //    }
-    //}
+    public void UnPauseAudio()
+    {
+        hoverboardSource.UnPause();
+    }
 }
