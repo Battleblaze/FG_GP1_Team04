@@ -24,17 +24,19 @@ public class OnScreenKeyboard : MonoBehaviour
 		this.firstSelected.Select();
 		this.action = this.player.actions["Cancel"];
 
-		action.performed += context => {
+		action.performed += context =>
+		{
 			this.nextSelected.Select();
 			this.gameObject.SetActive(false);
 		};
-}
+	}
 
 	// Update is called once per frame
 	void OnDisable()
 	{
 
 	}
+
 
 	public void Click(string letter)
 	{
