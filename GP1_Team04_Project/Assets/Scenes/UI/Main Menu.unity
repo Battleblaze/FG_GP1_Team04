@@ -1318,7 +1318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f19d3e40bf9b0c14ca92475a34939ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstSelected: {fileID: 1370124707}
+  firstSelected: {fileID: 1756869145}
 --- !u!1 &976962499
 GameObject:
   m_ObjectHideFlags: 0
@@ -1702,12 +1702,17 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
+--- !u!1 &1756869145 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7090363508846920082, guid: e8054a3baee0d04489e6854291a5aa86, type: 3}
+  m_PrefabInstance: {fileID: 342459380}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1770543555 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7090363508846920080, guid: e8054a3baee0d04489e6854291a5aa86, type: 3}
   m_PrefabInstance: {fileID: 342459380}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1370124707}
+  m_GameObject: {fileID: 1756869145}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
