@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class DeathScreen : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class DeathScreen : MonoBehaviour
 
 	[SerializeField] private TMP_InputField inputField;
 	[SerializeField] private GameObject submitButton;
+
+	[SerializeField] private Button nextSelected;
 
 	private void OnEnable()
 	{
@@ -28,8 +31,6 @@ public class DeathScreen : MonoBehaviour
 
 	public void Submit()
 	{
-
-
 		StartCoroutine(Upload(this.inputField.text, FG.GameVariables.Score));
 	}
 
@@ -60,6 +61,7 @@ public class DeathScreen : MonoBehaviour
 			{
 				this.submitButton.SetActive(false);
 				this.inputField.gameObject.SetActive(false);
+				this.nextSelected.Select();
 				Debug.Log("Form upload complete!");
 			}
 		}
