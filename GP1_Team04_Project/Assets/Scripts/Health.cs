@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -42,6 +44,10 @@ namespace FG
 
 		private float lastDamageTime = 0f;
 
+		[SerializeField] private Material normalColor;
+		[SerializeField] private Material collideColor;
+		[SerializeField] private GameObject character;
+
 		private void Start()
 		{
 			CurrentHealth = _startHealth;
@@ -49,6 +55,8 @@ namespace FG
 				MaxHealth = _startHealth;
 
 			if (_text) _text.text = "Health: " + CurrentHealth.ToString();
+
+			//renderer.gameObject.GetComponent<Material>();
 		}
 
 		public void Damage(float damageAmount)
@@ -64,6 +72,7 @@ namespace FG
 			this.lastDamageTime = currentTime + this.invulnerabilityFrames;
 
 			_onDamageEvent.Invoke();
+			StartCoroutine("Flasher");
 
 			CurrentHealth -= damageAmount;
 
@@ -108,5 +117,26 @@ namespace FG
 
 			if (_text) _text.text = "Health: " + CurrentHealth.ToString();
 		}
+		
+		IEnumerator Flasher() 
+		{
+			for (int i = 0; i < 5; i++)
+			{
+				for (int j = 0; j < 23; j++)
+				{
+					character.transform.GetChild(j).GetComponent<Renderer>().material = collideColor;
+				}
+				yield return new WaitForSeconds(.1f);
+
+				for (int j = 0; j < 23; j++)
+				{
+					character.transform.GetChild(j).GetComponent<Renderer>().material = normalColor;
+				}
+				yield return new WaitForSeconds(.1f);
+				
+			}
+		}
+		
+		
 	}
 }
