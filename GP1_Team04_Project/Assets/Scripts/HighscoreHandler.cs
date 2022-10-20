@@ -53,7 +53,7 @@ public class HighscoreHandler : MonoBehaviour
 		switch (contentType)
 		{
 			case ContentType.TopTen:
-				uri = "http://129.151.223.57/top_ten/0.1";
+				uri = "http://129.151.223.57/top_ten/1.0";
 				break;
 			case ContentType.All:
 				uri = "http://129.151.223.57/highscores";
