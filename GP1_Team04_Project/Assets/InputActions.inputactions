@@ -223,17 +223,6 @@
                 },
                 {
                     "name": "",
-                    "id": "88e96183-2b69-47b1-9df7-2d26fba3d032",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "A",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "79d651fd-dd7f-4ae7-a55d-c6ada821c674",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
@@ -250,6 +239,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
+                    "action": "B",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "88e96183-2b69-47b1-9df7-2d26fba3d032",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "B",
                     "isComposite": false,
                     "isPartOfComposite": false
