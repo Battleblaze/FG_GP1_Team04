@@ -256,6 +256,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 2428290076617756953}
   division: 4
+--- !u!82 &80203382 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8061044933684606562, guid: abfe19c1c5b8c4145b4843a7b89902ec, type: 3}
+  m_PrefabInstance: {fileID: 1855223897}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &112077248 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4037989788619552872, guid: e360e3addd9572e428bc652d0b1a87b5, type: 3}
@@ -426,6 +431,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &235567868 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7733613075995341573, guid: abfe19c1c5b8c4145b4843a7b89902ec, type: 3}
+  m_PrefabInstance: {fileID: 1855223897}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &311551771
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,11 +741,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 506720663}
   m_CullTransparentMesh: 1
---- !u!82 &564321459 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 7733613075995341573, guid: abfe19c1c5b8c4145b4843a7b89902ec, type: 3}
-  m_PrefabInstance: {fileID: 1855223897}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1524,11 +1529,15 @@ PrefabInstance:
     - target: {fileID: 2867980435944202190, guid: abfe19c1c5b8c4145b4843a7b89902ec, type: 3}
       propertyPath: alwaysOnSource
       value: 
-      objectReference: {fileID: 564321459}
+      objectReference: {fileID: 235567868}
     - target: {fileID: 2867980435944202190, guid: abfe19c1c5b8c4145b4843a7b89902ec, type: 3}
       propertyPath: buttonPressClip
       value: 
       objectReference: {fileID: 8300000, guid: aed92b6c0df5cb74297096f7b916580a, type: 3}
+    - target: {fileID: 2867980435944202190, guid: abfe19c1c5b8c4145b4843a7b89902ec, type: 3}
+      propertyPath: hoverboardSource
+      value: 
+      objectReference: {fileID: 80203382}
     - target: {fileID: 2867980435944202190, guid: abfe19c1c5b8c4145b4843a7b89902ec, type: 3}
       propertyPath: buttonPressSource
       value: 
@@ -1577,6 +1586,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3629408726764454272, guid: abfe19c1c5b8c4145b4843a7b89902ec, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3645625589906057303, guid: abfe19c1c5b8c4145b4843a7b89902ec, type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
@@ -1587,8 +1600,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7141171285835898925, guid: abfe19c1c5b8c4145b4843a7b89902ec, type: 3}
       propertyPath: m_Volume
-      value: 0.238
+      value: 0.23
       objectReference: {fileID: 0}
+    - target: {fileID: 7733613075995341573, guid: abfe19c1c5b8c4145b4843a7b89902ec, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 726ebbe798cc8b3419c59fd256811f61, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abfe19c1c5b8c4145b4843a7b89902ec, type: 3}
 --- !u!1 &1933894656

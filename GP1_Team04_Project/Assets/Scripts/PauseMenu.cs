@@ -13,6 +13,8 @@ public class PauseMenu : MonoBehaviour
 	{
 		this._gameManager.pausedgame = true;
 		this._score.text = FG.GameVariables.Score.ToString();
+		AudioManager.instance.PauseAudio();
+
 
 		Cursor.lockState = CursorLockMode.None;
 	}
@@ -20,6 +22,7 @@ public class PauseMenu : MonoBehaviour
 	void OnDisable()
 	{
 		this._gameManager.pausedgame = false;
+		AudioManager.instance.UnPauseAudio();
 
 		Cursor.lockState = CursorLockMode.Locked;
 	}
